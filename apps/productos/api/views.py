@@ -1,4 +1,4 @@
-from rest_framework.Viewset import ModelViewSet
+from rest_framework.viewsets import ModelViewSet
 from apps.productos.models import Productos
 from apps.productos.api.serializers import ProductosSerializer
 

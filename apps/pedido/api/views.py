@@ -1,4 +1,4 @@
-from rest_framework.Viewset import ModelViewSet
+from rest_framework.viewsets import ModelViewSet
 from apps.pedido.models import Pedidos
 from apps.pedido.api.serializers import PedidoSerializer
 

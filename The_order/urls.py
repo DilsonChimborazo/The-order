@@ -22,7 +22,7 @@ from apps.detalles.api.router import router_detalles
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include(router_productos.urls)),
-    path('api/',include(router_pedido.urls)),
-    path('api/',include(router_detalles.urls)), 
+    path('api/productos/',include(router_productos.urls)),
+    path('api/pedidos/',include(router_pedido.urls)),
+    path('api/detalles/',include(router_detalles.urls)), 
 ]

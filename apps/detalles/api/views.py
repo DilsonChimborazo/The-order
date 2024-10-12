@@ -1,4 +1,4 @@
-from rest_framework.Viewset import ModelViewSet
+from rest_framework.viewsets import ModelViewSet
 from apps.detalles.models import DetallePedido
 from apps.detalles.api.serializers import DetallePedidoSerializer
 
