@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from apps.pedido.models import Pedidos
+from apps.pedido.models import Pedido
 
 class PedidoSerializer(ModelSerializer):
     class Meta:
-        model = Pedidos
+        model = Pedido
         fields = '__all__'

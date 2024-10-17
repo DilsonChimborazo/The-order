@@ -1,13 +1,13 @@
 from django.db import models
-from apps.pedido.models import Pedidos
-from apps.productos.models import Productos
+from apps.pedido.models import Pedido
+from apps.productos.models import Producto
 
 # Create your models here.
 class DetallePedido(models.Model):
-    pedido = models.ForeignKey(Pedidos, on_delete=models.SET_NULL, null=True)
-    producto = models.ForeignKey(Productos, on_delete=models.SET_NULL, null=True)
-    cantidad = models.IntegerField()
-    observaciones = models.TextField(null=True)
+    pedido = models.ForeignKey(Pedido, related_name='detalles', on_delete=models.SET_NULL, null=True)
+    producto = models.ForeignKey(Producto, on_delete=models.SET_NULL, null=True)
+    cantidad = models.PositiveIntegerField()
+    observaciones = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.pedido
+        return f"{self.cantidad} - {self.producto.nombre}"
