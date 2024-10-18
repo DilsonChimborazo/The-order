@@ -19,10 +19,12 @@ from django.urls import path,include
 from apps.productos.api.router import router_productos
 from apps.pedido.api.router import router_pedido
 from apps.detalles.api.router import router_detalles
+from apps.facturacion.api.router import router_facturacion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include(router_productos.urls)),
     path('api/',include(router_pedido.urls)),
     path('api/',include(router_detalles.urls)), 
+    path('api/',include(router_facturacion.urls)),
 ]
