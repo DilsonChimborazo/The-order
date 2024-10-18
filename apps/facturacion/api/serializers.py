@@ -4,10 +4,11 @@ from apps.facturacion.models import Facturacion
 class FacturacionSerializer(ModelSerializer):
     class Meta:
         model = Facturacion
-        fields = ['pedido', 'detalle', 'total_a_pagar']
+        fields = ['restaurante','pedido', 'detalle', 'total_a_pagar']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
+        representation['restaurante'] = instance.restaurante.nombre_restaurante if instance.restaurante else "Restaurante no asignado"
         representation['pedido'] = instance.pedido.nombre_pedido
         representation['detalle'] = {
             'producto': instance.detalle.producto.nombre,
