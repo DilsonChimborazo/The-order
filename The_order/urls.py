@@ -21,6 +21,7 @@ from apps.pedido.api.router import router_pedido
 from apps.detalles.api.router import router_detalles
 from apps.facturacion.api.router import router_facturacion
 from apps.zona_preparacion.api.router import router_preparacion
+from apps.Datos_restaurante.api.router import router_datos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,6 @@ urlpatterns = [
     path('api/',include(router_detalles.urls)), 
     path('api/',include(router_facturacion.urls)),
     path('api/',include(router_preparacion.urls)),
+    path('api/',include(router_datos.urls)),
+
 ]
