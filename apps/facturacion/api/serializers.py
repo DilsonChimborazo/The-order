@@ -8,11 +8,15 @@ class FacturacionSerializer(ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['restaurante'] = instance.restaurante.nombre_restaurante if instance.restaurante else "Restaurante no asignado"
+        detalles = instance.pedido.detalles.all()
+        detalle_rep = [{
+            'producto': detalle.producto.nombre,
+            'precio': detalle.producto.precio,
+            'cantidad': detalle.cantidad
+        } for detalle in detalles]
         representation['pedido'] = instance.pedido.nombre_pedido
-        representation['detalle'] = {
-            'producto': instance.detalle.producto.nombre,
-            'cantidad': instance.detalle.cantidad,
-            'total': instance.total_a_pagar()
-        }
+        representation['detalle'] = detalle_rep
+        total_a_pagar = sum(detalle.producto.precio * detalle.cantidad for detalle in detalles)
+        representation['total_a_pagar'] = total_a_pagar
+
         return representation
