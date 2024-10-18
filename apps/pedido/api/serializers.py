@@ -4,4 +4,4 @@ from apps.pedido.models import Pedido
 class PedidoSerializer(ModelSerializer):
     class Meta:
         model = Pedido
-        fields = '__all__'
+        fields = ['nombre_pedido', 'para_llevar', 'estado']
